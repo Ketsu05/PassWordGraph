@@ -225,6 +225,26 @@
             this.materialComboBox1.StartIndex = 0;
             this.materialComboBox1.TabIndex = 0;
             // 
+            // Setting
+            // 
+            this.Setting.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Setting.BackColor = System.Drawing.SystemColors.Control;
+            this.Setting.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.Setting.Depth = 0;
+            this.Setting.HighEmphasis = true;
+            this.Setting.Icon = null;
+            this.Setting.Location = new System.Drawing.Point(249, 26);
+            this.Setting.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.Setting.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Setting.Name = "Setting";
+            this.Setting.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.Setting.Size = new System.Drawing.Size(81, 36);
+            this.Setting.TabIndex = 1;
+            this.Setting.Text = "Setting";
+            this.Setting.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.Setting.UseAccentColor = false;
+            this.Setting.UseVisualStyleBackColor = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -242,6 +262,7 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
