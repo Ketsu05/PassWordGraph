@@ -47,7 +47,18 @@ namespace PassWordGraph
 
         private void SB_Click(object sender, EventArgs e)
         {
+            int bit = 0;
+            if (!(int.TryParse((password_bit).Text, out  bit))) 
+            {
+                
+                MessageBox.Show(this,"必须得是数字");
+                return;
+            }
+            if (bit <= 8 || bit >= 128)
+                MessageBox.Show(this,"至少得是个8,且不能超过128");
             materialTabControl1.SelectedTab = tabPage1;
+
+
         }
 
         private void passworddis_Click(object sender, EventArgs e)
@@ -63,6 +74,28 @@ namespace PassWordGraph
         private void materialSlider1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void password_bit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(e.KeyChar =='\b' || char.IsDigit(e.KeyChar)))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void password_bit_Leave(object sender, EventArgs e)
+        {
+            int bit = 0;
+            if (!(int.TryParse((password_bit).Text, out bit)))
+            {
+
+                MessageBox.Show(this, "必须得是数字");
+                return;
+            }
+            if (bit <= 8 || bit >= 128)
+                MessageBox.Show(this, "至少得是个8,且不能超过128");
         }
     }
 }

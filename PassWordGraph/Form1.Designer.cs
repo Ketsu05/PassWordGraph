@@ -33,7 +33,6 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.passworddis = new MaterialSkin.Controls.MaterialTextBox2();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.materialSlider1 = new MaterialSkin.Controls.MaterialSlider();
             this.password_bit = new MaterialSkin.Controls.MaterialTextBox2();
             this.SB = new MaterialSkin.Controls.MaterialButton();
             this.materialComboBox1 = new MaterialSkin.Controls.MaterialComboBox();
@@ -50,7 +49,7 @@
             this.Setting.Depth = 0;
             this.Setting.HighEmphasis = true;
             this.Setting.Icon = null;
-            this.Setting.Location = new System.Drawing.Point(13, 300);
+            this.Setting.Location = new System.Drawing.Point(122, 230);
             this.Setting.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.Setting.MouseState = MaterialSkin.MouseState.HOVER;
             this.Setting.Name = "Setting";
@@ -120,7 +119,6 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.materialSlider1);
             this.tabPage2.Controls.Add(this.password_bit);
             this.tabPage2.Controls.Add(this.SB);
             this.tabPage2.Controls.Add(this.materialComboBox1);
@@ -131,23 +129,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // materialSlider1
-            // 
-            this.materialSlider1.Depth = 0;
-            this.materialSlider1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialSlider1.FontType = MaterialSkin.MaterialSkinManager.fontType.Button;
-            this.materialSlider1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialSlider1.Location = new System.Drawing.Point(48, 221);
-            this.materialSlider1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSlider1.Name = "materialSlider1";
-            this.materialSlider1.RangeMax = 128;
-            this.materialSlider1.RangeMin = 8;
-            this.materialSlider1.Size = new System.Drawing.Size(250, 40);
-            this.materialSlider1.TabIndex = 3;
-            this.materialSlider1.Text = "密码位数";
-            this.materialSlider1.Value = 8;
-            this.materialSlider1.Click += new System.EventHandler(this.materialSlider1_Click);
             // 
             // password_bit
             // 
@@ -178,6 +159,8 @@
             this.password_bit.TrailingIcon = null;
             this.password_bit.UseSystemPasswordChar = false;
             this.password_bit.Click += new System.EventHandler(this.materialTextBox1_TextChanged);
+            this.password_bit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.password_bit_KeyPress);
+            this.password_bit.Leave += new System.EventHandler(this.password_bit_Leave);
             // 
             // SB
             // 
@@ -254,7 +237,6 @@
         private MaterialSkin.Controls.MaterialButton SB;
         private MaterialSkin.Controls.MaterialTextBox2 passworddis;
         private MaterialSkin.Controls.MaterialTextBox2 password_bit;
-        private MaterialSkin.Controls.MaterialSlider materialSlider1;
     }
 }
 
