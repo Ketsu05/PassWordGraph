@@ -159,8 +159,8 @@
             this.password_bit.TrailingIcon = null;
             this.password_bit.UseSystemPasswordChar = false;
             this.password_bit.Click += new System.EventHandler(this.materialTextBox1_TextChanged);
+            this.password_bit.DoubleClick += new System.EventHandler(this.password_bit_DoubleClick);
             this.password_bit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.password_bit_KeyPress);
-            this.password_bit.Leave += new System.EventHandler(this.password_bit_Leave);
             // 
             // SB
             // 

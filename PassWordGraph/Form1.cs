@@ -54,7 +54,7 @@ namespace PassWordGraph
                 MessageBox.Show(this,"必须得是数字");
                 return;
             }
-            if (bit <= 8 || bit >= 128)
+            if (bit < 8 || bit > 128)
                 MessageBox.Show(this,"至少得是个8,且不能超过128");
             materialTabControl1.SelectedTab = tabPage1;
 
@@ -85,17 +85,9 @@ namespace PassWordGraph
 
         }
 
-        private void password_bit_Leave(object sender, EventArgs e)
+        private void password_bit_DoubleClick(object sender, EventArgs e)
         {
-            int bit = 0;
-            if (!(int.TryParse((password_bit).Text, out bit)))
-            {
-
-                MessageBox.Show(this, "必须得是数字");
-                return;
-            }
-            if (bit <= 8 || bit >= 128)
-                MessageBox.Show(this, "至少得是个8,且不能超过128");
+            password_bit.Text = "";
         }
     }
 }
