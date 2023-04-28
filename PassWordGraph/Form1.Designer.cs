@@ -28,14 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Setting = new MaterialSkin.Controls.MaterialButton();
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.time_left_DIE = new MaterialSkin.Controls.MaterialProgressBar();
             this.passworddis = new MaterialSkin.Controls.MaterialTextBox2();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.password_bit = new MaterialSkin.Controls.MaterialTextBox2();
             this.SB = new MaterialSkin.Controls.MaterialButton();
-            this.materialComboBox1 = new MaterialSkin.Controls.MaterialComboBox();
+            this.PassWordType = new MaterialSkin.Controls.MaterialComboBox();
+            this.tiktok = new System.Windows.Forms.Timer(this.components);
+            this.showTimer = new System.Windows.Forms.Timer(this.components);
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -77,6 +81,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.time_left_DIE);
             this.tabPage1.Controls.Add(this.passworddis);
             this.tabPage1.Controls.Add(this.Setting);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -86,6 +91,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // time_left_DIE
+            // 
+            this.time_left_DIE.Depth = 0;
+            this.time_left_DIE.Location = new System.Drawing.Point(23, 144);
+            this.time_left_DIE.MouseState = MaterialSkin.MouseState.HOVER;
+            this.time_left_DIE.Name = "time_left_DIE";
+            this.time_left_DIE.Size = new System.Drawing.Size(269, 5);
+            this.time_left_DIE.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.time_left_DIE.TabIndex = 3;
             // 
             // passworddis
             // 
@@ -111,7 +126,6 @@
             this.passworddis.Size = new System.Drawing.Size(269, 48);
             this.passworddis.TabIndex = 2;
             this.passworddis.TabStop = false;
-            this.passworddis.Text = "materialTextBox21";
             this.passworddis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.passworddis.TrailingIcon = null;
             this.passworddis.UseSystemPasswordChar = false;
@@ -121,7 +135,7 @@
             // 
             this.tabPage2.Controls.Add(this.password_bit);
             this.tabPage2.Controls.Add(this.SB);
-            this.tabPage2.Controls.Add(this.materialComboBox1);
+            this.tabPage2.Controls.Add(this.PassWordType);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -182,31 +196,43 @@
             this.SB.UseVisualStyleBackColor = true;
             this.SB.Click += new System.EventHandler(this.SB_Click);
             // 
-            // materialComboBox1
+            // PassWordType
             // 
-            this.materialComboBox1.AutoResize = false;
-            this.materialComboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialComboBox1.Depth = 0;
-            this.materialComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialComboBox1.DropDownHeight = 174;
-            this.materialComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialComboBox1.DropDownWidth = 121;
-            this.materialComboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialComboBox1.FormattingEnabled = true;
-            this.materialComboBox1.IntegralHeight = false;
-            this.materialComboBox1.ItemHeight = 43;
-            this.materialComboBox1.Items.AddRange(new object[] {
+            this.PassWordType.AutoResize = false;
+            this.PassWordType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PassWordType.Depth = 0;
+            this.PassWordType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.PassWordType.DropDownHeight = 174;
+            this.PassWordType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.PassWordType.DropDownWidth = 121;
+            this.PassWordType.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.PassWordType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.PassWordType.FormattingEnabled = true;
+            this.PassWordType.IntegralHeight = false;
+            this.PassWordType.ItemHeight = 43;
+            this.PassWordType.Items.AddRange(new object[] {
             "classic",
             "rolling",
             "disorder"});
-            this.materialComboBox1.Location = new System.Drawing.Point(53, 120);
-            this.materialComboBox1.MaxDropDownItems = 4;
-            this.materialComboBox1.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialComboBox1.Name = "materialComboBox1";
-            this.materialComboBox1.Size = new System.Drawing.Size(217, 49);
-            this.materialComboBox1.StartIndex = 0;
-            this.materialComboBox1.TabIndex = 0;
+            this.PassWordType.Location = new System.Drawing.Point(53, 120);
+            this.PassWordType.MaxDropDownItems = 4;
+            this.PassWordType.MouseState = MaterialSkin.MouseState.OUT;
+            this.PassWordType.Name = "PassWordType";
+            this.PassWordType.Size = new System.Drawing.Size(217, 49);
+            this.PassWordType.StartIndex = 0;
+            this.PassWordType.TabIndex = 0;
+            // 
+            // tiktok
+            // 
+            this.tiktok.Enabled = true;
+            this.tiktok.Interval = 30000;
+            this.tiktok.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // showTimer
+            // 
+            this.showTimer.Enabled = true;
+            this.showTimer.Interval = 1000;
+            this.showTimer.Tick += new System.EventHandler(this.showTimer_Tick);
             // 
             // Form1
             // 
@@ -216,7 +242,9 @@
             this.ClientSize = new System.Drawing.Size(333, 450);
             this.Controls.Add(this.materialTabControl1);
             this.Font = new System.Drawing.Font("幼圆", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.MaximizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "密码生成器";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.materialTabControl1.ResumeLayout(false);
@@ -233,10 +261,13 @@
         private MaterialSkin.Controls.MaterialTabControl materialTabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private MaterialSkin.Controls.MaterialComboBox materialComboBox1;
+        private MaterialSkin.Controls.MaterialComboBox PassWordType;
         private MaterialSkin.Controls.MaterialButton SB;
         private MaterialSkin.Controls.MaterialTextBox2 passworddis;
         private MaterialSkin.Controls.MaterialTextBox2 password_bit;
+        private System.Windows.Forms.Timer tiktok;
+        private MaterialSkin.Controls.MaterialProgressBar time_left_DIE;
+        private System.Windows.Forms.Timer showTimer;
     }
 }
 
