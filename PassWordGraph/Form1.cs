@@ -255,5 +255,12 @@ namespace PassWordGraph
             }
             time_left_DIE.Value = tc;
         }
-    }
-}
+
+       
+            
+                
+            
+
+
+        }
+       
