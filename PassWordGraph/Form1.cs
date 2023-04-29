@@ -31,7 +31,7 @@ namespace PassWordGraph
             Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             PassWordType.Text = cfa.AppSettings.Settings["type"].Value;
             password_bit.Text = cfa.AppSettings.Settings["bit"].Value;
-            timer1_Tick(tiktok,new EventArgs());
+            timer1_Tick(tiktok, new EventArgs());
             time_left_DIE.Maximum = tiktok.Interval / showTimer.Interval;
         }
 
@@ -45,7 +45,7 @@ namespace PassWordGraph
             tiktok.Enabled = false;
             showTimer.Enabled = false;
             materialTabControl1.SelectedTab = tabPage2;
-            
+
         }
 
         private void materialListBox1_SelectedIndexChanged(object sender, MaterialListBoxItem selectedItem)
@@ -56,10 +56,10 @@ namespace PassWordGraph
         private void SB_Click(object sender, EventArgs e)
         {
             int bit = 0;
-            if (!(int.TryParse((password_bit).Text, out  bit))) 
+            if (!(int.TryParse((password_bit).Text, out bit)))
             {
-                
-                MessageBox.Show(this,"必须得是数字");
+
+                MessageBox.Show(this, "必须得是数字");
                 return;
             }
             if (bit < 8 || bit > 128)
@@ -83,16 +83,16 @@ namespace PassWordGraph
         private void passworddis_Click(object sender, EventArgs e)
         {
             Clipboard.SetDataObject(passworddis.Text);
-            MessageBox.Show(this,"已复制密码，去注册界面粘贴吧");
+            MessageBox.Show(this, "已复制密码，去注册界面粘贴吧");
         }
 
-        
 
-       
+
+
 
         private void password_bit_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(e.KeyChar =='\b' || char.IsDigit(e.KeyChar)))
+            if (!(e.KeyChar == '\b' || char.IsDigit(e.KeyChar)))
             {
                 e.Handled = true;
             }
@@ -106,14 +106,14 @@ namespace PassWordGraph
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);            
+            Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
             string type = cfa.AppSettings.Settings["type"].Value;
             string bit = cfa.AppSettings.Settings["bit"].Value;
 
             switch (type)
             {
                 case "classic":
-                    passworddis.Text = DefaultPassWord(bit);                    
+                    passworddis.Text = DefaultPassWord(bit);
                     break;
                 case "disorder":
                     passworddis.Text = RandomBitPassWord(bit);
@@ -122,9 +122,9 @@ namespace PassWordGraph
                     passworddis.Text = RollBitPassWord(bit);
                     break;
             }
-            
-                
-            
+
+
+
 
 
         }
@@ -132,7 +132,7 @@ namespace PassWordGraph
         {
 
             string passwd = "";
-            char[] spChars = { '$', '~', '!', '@', '#', '%', '^', '&', '`', '-' };            
+            char[] spChars = { '$', '~', '!', '@', '#', '%', '^', '&', '`', '-' };
             int passwdLen = Convert.ToInt32(bit);
             Random r = new Random();
 
@@ -166,14 +166,14 @@ namespace PassWordGraph
                         break;
                 }
 
-            }           
-            
+            }
+
             return passwd;
 
         }
         public string RandomBitPassWord(string bit)
         {
-            
+
             string passwd = "";
             char[] spChars = { '$', '~', '!', '@', '#', '%', '^', '&', '`', '-' };
             int passwdLen = Convert.ToInt32(bit);
@@ -188,18 +188,18 @@ namespace PassWordGraph
                 }
                 else
                 {
-                    
+
                     char rChar = (char)r.Next(33, 126);
                     passwd += rChar;
                 }
 
             }
-                        
+
             return passwd;
         }
         public string RollBitPassWord(string bit)
         {
-            
+
             string passwd = "";
             char[] spChars = { '$', '~', '!', '@', '#', '%', '^', '&', '`', '-' };
             int passwdLen = Convert.ToInt32(bit);
@@ -242,18 +242,26 @@ namespace PassWordGraph
                 }
 
             }
-           
+
             return passwd;
         }
 
         private void showTimer_Tick(object sender, EventArgs e)
         {
             tc++;
-            if (tc >= tiktok.Interval/showTimer.Interval)
+            if (tc >= tiktok.Interval / showTimer.Interval)
             {
                 tc = 0;
             }
             time_left_DIE.Value = tc;
         }
+
+
+
+
+
+
+
     }
 }
+       
